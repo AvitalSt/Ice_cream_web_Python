@@ -1,0 +1,23 @@
+​use ice_cream_db
+
+create table customers(
+    id_customer INT IDENTITY(100,1) PRIMARY KEY,
+    user_name VARCHAR(25),
+    password VARCHAR(35),
+);
+
+create table ice_cream(
+    id_ice_cream INT IDENTITY(100,1) PRIMARY KEY,
+    ice_cream_name VARCHAR(35),
+    descraption VARCHAR(200),
+    price_per_ball INT,
+    price_per_kilo INT
+);
+
+create table orders(
+    id_order INT IDENTITY(10,1) PRIMARY KEY,
+    id_customer INT,
+    date_order DATE,
+    total_price INT,
+    FOREIGN KEY (id_customer) REFERENCES customers(id_customer)
+)
